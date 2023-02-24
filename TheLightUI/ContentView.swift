@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+   @State var isLightOn = true
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack{
+            isLightOn ? Color.white : Color.black
         }
-        .padding()
+        .edgesIgnoringSafeArea(.all)
+        .onTapGesture {
+            isLightOn.toggle()
+        }
+        .statusBarHidden()
     }
 }
 
